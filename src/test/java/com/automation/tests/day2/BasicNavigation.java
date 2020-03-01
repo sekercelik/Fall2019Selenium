@@ -21,6 +21,8 @@ public class BasicNavigation {
     // ChromeDriver extends RemoteWebDriver --> implements WebDriver
 
         driver.get("http://google.com");    // to open a website
+        driver.manage().window().maximize();
+        //driver.manage().window().fullscreen(); // we don't use it usually
 
         Thread.sleep(3000); // for demo, wait 3 seconds // add throws declaration, too!!!
 
@@ -34,11 +36,46 @@ public class BasicNavigation {
             System.out.println("Test Failed");
         }
 
+        // go to another website within the same windov
+        driver.navigate().to("https://amazon.com");
+
+        if(driver.getTitle().toLowerCase().contains("amazon")){
+            System.out.println("Test Passed");
+        }else{
+            System.out.println("Test Failed");
+        }
+
+        driver.navigate().back();   // comeback to google
+        verifyEquals(driver.getTitle(),"Google"); // checking if page title is equal to Google
+        //checking if page title is equals to Google
+        //.getTitle() - returns page title
+        verifyEquals(driver.getTitle(), "Google");
+        //move forward in the browser history
+        //again, going to amazon
+        driver.navigate().forward();
+        Thread.sleep(3000);//for demo, wait 3 seconds
+        System.out.println("Title: "+driver.getTitle());
+        //driver.getTitle() - returns page title of the page that is currently opened
+        System.out.println("URL: "+ driver.getCurrentUrl());
+
+        driver.navigate().refresh();//to reload page
+        Thread.sleep(3000);//for demo, wait 3 seconds
+        //driver.navigate().to() = driver.get()
+        //must be at the end
         driver.close(); // to close browser// browser cannot close itself
 
 
-
-
-
     }
+
+    //check if two strings are the same, if print Test Passed
+    //Otherwise print Test Failed
+    public static void verifyEquals(String arg1, String arg2){
+        if (arg1.equals(arg2)){
+            System.out.println("Test Passed");
+        }else {
+            System.out.println("Test Failed");
+        }
+    }
+
+
 }
