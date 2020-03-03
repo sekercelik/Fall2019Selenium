@@ -10,7 +10,7 @@ public class BasicNavigation {
 
 
     // to start selenium script we need :
-   // setup webdriver (browser driver) and create webdriver object
+   // setup web driver (browser driver) and create webdriver object
    // for every browser we have corresponding driver
 
         WebDriverManager.chromedriver().setup(); // we just call it here
