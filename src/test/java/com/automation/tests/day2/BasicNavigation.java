@@ -11,7 +11,7 @@ public class BasicNavigation {
 
     // to start selenium script we need :
    // setup webdriver (browser driver) and create webdriver object
-        // for every browser we have corresponding driver
+   // for every browser we have corresponding driver
 
         WebDriverManager.chromedriver().setup(); // we just call it here
         WebDriver driver= new ChromeDriver(); //WebDriver is interface//  ChromeDriver is a class
@@ -36,7 +36,7 @@ public class BasicNavigation {
             System.out.println("Test Failed");
         }
 
-        // go to another website within the same windov
+        // go to another website within the same window
         driver.navigate().to("https://amazon.com");
 
         if(driver.getTitle().toLowerCase().contains("amazon")){

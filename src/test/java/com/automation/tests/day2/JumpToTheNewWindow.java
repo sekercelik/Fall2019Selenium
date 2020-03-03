@@ -41,7 +41,7 @@ public class JumpToTheNewWindow {
         System.out.println("After swicth: "+ driver.getCurrentUrl());
 
         driver.close();
-
+        // driver.quit();
 
 
     }
