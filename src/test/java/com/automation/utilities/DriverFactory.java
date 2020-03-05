@@ -19,8 +19,14 @@ public class DriverFactory {
     * * @param browserName
      * @return webdriver object
      * */
-
-    public static WebDriver createADriver(String browserName){
+    /**
+     * You homework will be to improve this method!
+     * This method return webdriver object based on browser type
+     * If you want to use chrome browser, just provide chrome as a parameter
+     * @param browserName
+     * @return webdriver object
+     */
+    public static WebDriver createDriver(String browserName){
         if(browserName.equalsIgnoreCase("chrome")){
             WebDriverManager.chromedriver().setup();
             return new ChromeDriver();
@@ -29,5 +35,4 @@ public class DriverFactory {
             return new FirefoxDriver();
         }
     }
-
 }
