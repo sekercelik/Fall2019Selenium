@@ -17,10 +17,10 @@ public class FindElementsPractice {
 //we wrote reusable methods inside DriverFactory class named => createDriver
 //whenever we need to crate webDriver object
 //we will call our custom method
-//        WebDriverManager.chromedriver().setup();
-//        WebDriver driver =new ChromeDriver();
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver =new ChromeDriver();
 
-        WebDriver driver = DriverFactory.createADriver("chrome");
+       // WebDriver driver = DriverFactory.createADriver("chrome");
         driver.get("http://practice.cybertekschool.com/sign_up");
         WebElement fullName= driver.findElement(By.name("full_name"));
         fullName.sendKeys("Sidika Celik");

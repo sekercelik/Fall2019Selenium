@@ -9,44 +9,54 @@ public class BasicNavigationSelf {
         WebDriverManager.chromedriver().setup();
         ChromeDriver driver= new ChromeDriver();
 
-        String a= "https://google.com";
-        String b= "https://amazon.com";
-        String c= " https://etsy.com";
+        String a= "http://google.com";
+        String b= "http://amazon.com";
+        String c= " http://etsy.com";
 
 
         driver.get(a);
         Thread.sleep(4000);
-        verifyEqual(driver.getTitle(),"google");
+        verifyEquals(driver.getTitle(),"google");
 
 
         driver.navigate().to(b);
         Thread.sleep(4000);
         //System.out.println("second page:  "+driver.getTitle());
-        verifyEqual(driver.getTitle(),"amazon");
+
+        if(driver.getTitle().toLowerCase().contains("amazon")){
+            System.out.println("Test Passed");
+        }else{
+            System.out.println("Test Failed");
+        }
+
+       // verifyEquals(driver.getTitle(),"Amazon");   // neden hata veriyor?
 
         driver.navigate().to(c);
-        System.out.println("navigate.to:  "+driver.getTitle());
         Thread.sleep(4000);
+      //  verifyEquals(driver.getTitle(),"etsy"); // neden hata veriyor?
+        System.out.println("navigate.to:  "+driver.getTitle());
+
 
         driver.navigate().back();
-        System.out.println("navigate back:  "+driver.getTitle());
         Thread.sleep(4000);
+        System.out.println("navigate back:  "+driver.getTitle());
+
 
         driver.navigate().forward();
         System.out.println("navigate forward:  "+ driver.getTitle());
         Thread.sleep(4000);
 
         driver.navigate().refresh();
-        Thread.sleep(4000);
         System.out.println("refresh:  "+ driver.getTitle());
-        driver.quit();
 
-     //   driver.close();
+      //  driver.quit();
+
+        driver.close();
 
 
     }
 
-        public static void verifyEqual(String str1,String str2){
+        public static void verifyEquals(String str1,String str2){
         if(str1.equalsIgnoreCase(str2)){
             System.out.println("Passed");
         }else{

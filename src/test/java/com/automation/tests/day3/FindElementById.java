@@ -29,7 +29,7 @@ public class FindElementById {
 
         String expected="Welcome to the Secure Area. When you are done click logout below.";
         String actual= driver.findElement(By.tagName("h4")).getText(); // to verify if tag is unique, put // infront of tag
-                                                                        //  like h4 in searc box(open the box: it ctrl+f)
+                                                                        //  like h4 in search box(open the box: it ctrl+f)
 
         if(expected.equals(actual)){
             System.out.println("Test Passed");
@@ -46,6 +46,7 @@ public class FindElementById {
       // don't put space
 
         WebElement logout = driver.findElement(By.partialLinkText("Logout"));
+        //WebElement logout = driver.findElement(By.linkText("Logout"));
         String href = logout.getAttribute("href");
         String className = logout.getAttribute("class");
 

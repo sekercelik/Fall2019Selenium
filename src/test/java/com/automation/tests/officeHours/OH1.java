@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-public class SeleniumOH1 {
+public class OH1 {
     /*
         - Iterator
             - List, Set, Map, and other types of collections can use Iterator class to iterate over that collection
