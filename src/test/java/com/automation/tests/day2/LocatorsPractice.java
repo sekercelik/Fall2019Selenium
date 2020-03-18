@@ -13,7 +13,7 @@ public class LocatorsPractice {
         WebDriverManager.chromedriver().setup();    // to set up driver
         WebDriver driver =new ChromeDriver();
        driver.manage().window().maximize();
-    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+       driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.get("http://google.com");
 
         WebElement btn1= driver.findElement(By.id("gbqfbb"));

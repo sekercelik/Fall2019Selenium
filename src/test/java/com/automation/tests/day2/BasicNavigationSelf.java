@@ -23,17 +23,19 @@ public class BasicNavigationSelf {
         Thread.sleep(4000);
         //System.out.println("second page:  "+driver.getTitle());
 
-        if(driver.getTitle().toLowerCase().contains("amazon")){
+        if(driver.getTitle().toLowerCase().contains("amazon")){ // will pass/ cunku title'da amazon var
             System.out.println("Test Passed");
         }else{
             System.out.println("Test Failed");
         }
 
-       // verifyEquals(driver.getTitle(),"Amazon");   // neden hata veriyor?
+        verifyEquals(driver.getTitle(),"Amazon");   // neden hata veriyor?/cunku title equals amazon degil../
+        // title=> Amazon.com: Online Shopping for Electronics, Apparel, Computers, Books, DVDs & more
 
         driver.navigate().to(c);
         Thread.sleep(4000);
-      //  verifyEquals(driver.getTitle(),"etsy"); // neden hata veriyor?
+        verifyEquals(driver.getTitle(),"etsy"); // will fail because: title is
+      //  title=> Etsy - Shop for handmade, vintage, custom, and unique gifts for everyone
         System.out.println("navigate.to:  "+driver.getTitle());
 
 
