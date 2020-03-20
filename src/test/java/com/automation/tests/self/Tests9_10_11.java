@@ -33,16 +33,17 @@ public class Tests9_10_11 {
     @Test
     public void testCase9() {
         driver.findElement(By.linkText("200")).click();
-        WebElement message = driver.findElement(By.xpath("//p[contains(text(),'This page returned a 200 status code.')]"));
-        //  WebElement message = driver.findElement(By.tagName("p"));
-        assertTrue(message.isDisplayed());
-        BrowserUtils.wait(5);
+        String expected= "This page returned a 200 status code.";
+        String actual= driver.findElement(By.tagName("p")).getText();
+        assertTrue(actual.contains(expected));
+        BrowserUtils.wait(3);
 
-        //a different approach to see if the message contains the expected
-//        String expected= "This page returned a 200 status code.";
-//        String actual= driver.findElement(By.tagName("p")).getText();
-//          assertTrue(actual.contains(expected));
-//          BrowserUtils.wait(3);
+        //  a different approach
+        //  WebElement message = driver.findElement(By.xpath("//p[contains(text(),'This page returned a 200 status code.')]"));
+        //  WebElement message = driver.findElement(By.tagName("p"));
+        //  assertTrue(message.isDisplayed());
+        //  BrowserUtils.wait(5);
+
     }
 
     //*****************************************************************************************************************

@@ -20,23 +20,20 @@ public class Test_7 {
         driver.get(URL);
         driver.manage().window().maximize();
 
-        driver.findElement(By.id("file-upload")).sendKeys("C:\\Users\\16787\\Desktop//XPath_Css.txt");
-        driver.findElement(By.id("file-submit")).click();
+        driver.findElement(By.linkText("File Upload")).click();
+       driver.findElement(By.id("file-upload")).sendKeys("C:\\Users\\16787\\Desktop//XPath_Css.txt");
+       driver.findElement(By.id("file-submit")).click();
 
-        WebElement message= driver.findElement(By.className("example"));
+        WebElement message= driver.findElement(By.tagName("h3"));
         String actual= message.getText();
-        System.out.println(actual);
-
         String expected= "File Uploaded!";
-        Assert.assertEquals(actual,expected);
-        Assert.assertTrue(driver.findElement(By.id("uploaded-files")).isDisplayed());
+       // System.out.println(actual);
 
-//        String fileResult= driver.findElement(By.id("uploaded-files")).getAttribute("value");
-//        System.out.println(fileResult);
+        Assert.assertEquals(actual,expected);
+
+        Assert.assertTrue(driver.findElement(By.id("uploaded-files")).isDisplayed());
 
         driver.quit();
     }
-
-
 
 }
