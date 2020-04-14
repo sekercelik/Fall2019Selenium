@@ -37,7 +37,7 @@ public class Tests1_5 {
    private By job = By.name("job_title");
    private By signUp= By.id("wooden_spoon");
 
-    //****************************************************************************************************
+   //****************************************************************************************************
 
     @Test
     public void testCase1(){
@@ -107,6 +107,7 @@ public class Tests1_5 {
 
     Select jobTitle= new Select(driver.findElement(job));
     jobTitle.selectByVisibleText("QA");
+    //jobTitle.selectByIndex(5);
 
     driver.findElement(javaBy).click();
     driver.findElement(signUp).click();

@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import java.util.HashMap;
 
@@ -45,7 +46,7 @@ public class OH_VyTruck {
         }else {
             System.out.println("Title is NOT expected");
         }
-        //MEETING ID FOR TODAY CLASS: 949992072
+
         HashMap <String, String> contact1 = new HashMap<>();
         contact1.put("First Name", "John");
         contact1.put("Last Name", "Smith");
@@ -93,6 +94,27 @@ public class OH_VyTruck {
         if (contact1.get("Sales Group").equalsIgnoreCase("true")){
             salesGroup.click();
         }
+
+        driver.findElement(By.xpath("(//button[contains(text(), 'Save and Close')])[1]")).click();
+        Thread.sleep(3000);
+
+        String fullName = contact1.get("First Name") + " " + contact1.get("Last Name");
+        String uiFullName = driver.findElement(By.xpath("//h1[@class='user-name']")).getText();
+
+        Assert.assertEquals(uiFullName, fullName);
+        System.out.println("Actual: " + uiFullName + " | Expected: " + fullName);
+        String uiPhone = driver.findElement(By.className("phone")).getText();
+
+        Assert.assertEquals(uiPhone, contact1.get("Phone"));
+        System.out.println("Actual: " + uiPhone + " | Expected: " + contact1.get("Phone"));
+
+        Thread.sleep(2000);
+        String uiCompleteAddress = driver.findElement(By.xpath("//address")).getText();
+        String cityWithState = (contact1.get("City") + " " + contact1.get("State") +
+                " " + contact1.get("Country") + " " + contact1.get("Zip Code")).toUpperCase();
+        String completeAddress = contact1.get("Street") + "\n" + cityWithState;
+
+        Assert.assertEquals(uiCompleteAddress, completeAddress);
 
     }
 

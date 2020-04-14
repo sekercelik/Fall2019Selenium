@@ -18,8 +18,8 @@ public class LoginPageTests {
     private WebDriver driver;
     private String URL= "https://qa2.vytrack.com/user/login";
     //https  -->  is secured version of http protocol
-    // http  -->  is hypertext transfer protocol that every single website is using nowadays
     // https --> data encrypted, no chance for hackers to retrieve info
+    // http  -->  is hypertext transfer protocol that every single website is using nowadays
     // http  --> data as plain text, very easy to hack it
 
     private String username= "storemanager85";  // credentials for store manager

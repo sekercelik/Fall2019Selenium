@@ -23,6 +23,7 @@ public class Test_6 {
         String email= driver.findElement(By.id("email")).getText(); //step 2
 
         BrowserUtils.wait(4);
+
         driver.navigate().to("https://practice-cybertekschool.herokuapp.com/");// step  3
         driver.findElement(By.linkText("Sign Up For Mailing List")).click(); // step 4
 
@@ -41,7 +42,6 @@ public class Test_6 {
 
         Assert.assertTrue(message.isDisplayed());//8
         BrowserUtils.wait(4);
-
 
         driver.navigate().to("https://www.tempmailaddress.com/"); //step 9
         BrowserUtils.wait(4);

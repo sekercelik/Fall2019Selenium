@@ -28,6 +28,7 @@ import java.time.format.DateTimeFormatter;
  */
 
 public class CalendarEventsPageTests {
+
     private By usernameBy = By.id("prependedInput");
     private By passwordBy = By.id("prependedInput2");
     private WebDriver driver;
@@ -110,7 +111,7 @@ public class CalendarEventsPageTests {
 
         Assert.assertEquals(actualDate , expectedDate);
 
-        String expectedTime = LocalTime.now(ZoneId.of("GMT-7")).format(DateTimeFormatter.ofPattern("h:mm a"));
+        String expectedTime = LocalTime.now(ZoneId.of("GMT-7")).format(DateTimeFormatter.ofPattern("h:m a"));
         String actualTime = driver.findElement(startTimeBy).getAttribute("value");
 
         Assert.assertEquals(actualTime, expectedTime);
